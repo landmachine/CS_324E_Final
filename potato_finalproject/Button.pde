@@ -3,8 +3,11 @@ class Button {
   PFont buttonFont;
   PShape buttonGraphic;
   String displayText;
+  color c_hover = color(100);
+  color c_static = color(150);
 
-  Button(int _xPos, int _yPos, int _xLen, int _yLen, String _displayText) {
+  // Standard hover/static colors
+  Button(float _xPos, float _yPos, float _xLen, float _yLen, String _displayText) {
     pos = new PVector(_xPos, _yPos);
     size = new PVector(_xLen, _yLen);
     displayText = _displayText;
@@ -12,13 +15,25 @@ class Button {
     rectMode(CENTER);
     buttonGraphic = createShape(RECT, 0, 0, size.x, size.y);
   }
+  
+  //Change hover/statics colors
+  Button(float _xPos, float _yPos, float _xLen, float _yLen, String _displayText, color _hover, color _static) {
+    pos = new PVector(_xPos, _yPos);
+    size = new PVector(_xLen, _yLen);
+    displayText = _displayText;
+    buttonFont = createFont("SansSerif", 32);
+    rectMode(CENTER);
+    buttonGraphic = createShape(RECT, 0, 0, size.x, size.y);
+    c_hover = _hover;
+    c_static = _static;
+  }
 
   void display() {
     color col;
     if (hover()) {
-      col = color(100); //hover color
+      col = c_hover;
     } else {
-      col = color(150); // static color
+      col = c_static;
     }
     buttonGraphic.setFill(col);
     shapeMode(CENTER);
