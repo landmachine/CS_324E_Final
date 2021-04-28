@@ -15,7 +15,7 @@ class Button {
     rectMode(CENTER);
     buttonGraphic = createShape(RECT, 0, 0, size.x, size.y);
   }
-  
+
   //Change hover/statics colors
   Button(float _xPos, float _yPos, float _xLen, float _yLen, String _displayText, color _hover, color _static) {
     pos = new PVector(_xPos, _yPos);

@@ -1,14 +1,19 @@
 class Pokemon {
   PVector pos;
-  int size = 50;
-  
-  Pokemon(PVector _position){
+  int card_size = 50;
+
+  Pokemon(PVector _position) {
     this.pos = _position;
   }
-  
-  void display(){
+
+  void display() {
     fill(0);
-    rect(pos.x, pos.y, size, size);
+    rectMode(CENTER);
+    rect(pos.x, pos.y, 128, 128);
   }
-  
+
+  void display_card() {
+    fill(255);
+    rect(pos.x, pos.y, card_size, card_size);
+  }
 }
