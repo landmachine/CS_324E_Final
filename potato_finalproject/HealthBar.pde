@@ -21,10 +21,9 @@ class HealthBar {
     rect(xLoc, yLoc, 90, 50, 7);
     fill(color(0, 255, 0));
     rectMode(CORNER);
-    println(80 - 80*(totalHealth - actualHealth)/totalHealth);
-    rect(width/2 - 40, height/2 + 10, 80 - 80*(totalHealth - actualHealth)/totalHealth, 10);
+    rect(xLoc - 40, yLoc + 10, 80 - 80*(totalHealth - actualHealth)/totalHealth, 10);
     fill(0);
     textAlign(CENTER);
-    text("Pikachu", width/2, height/2 - 10);
+    text(pokeName, xLoc, yLoc);
   }
 }
