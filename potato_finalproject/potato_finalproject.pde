@@ -13,7 +13,6 @@ void setup() {
   //add back in calls for screens - switching betwen them too
 }
 
-
 void draw() {
   background(222);
   //add back in calls for screens - switching betwen them too
