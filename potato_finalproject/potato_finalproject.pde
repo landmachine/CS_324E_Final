@@ -16,6 +16,11 @@ Pokemon p2_pokemon;
 void setup() {
   size(800, 800);
   
+  textSize(50);
+  textAlign(CENTER);
+  fill(0);
+  text("Loading....", width/2, height/2);
+  
   excel = loadTable("Pokemon.csv", "header");
   pokemonCount = excel.getRowCount();
   
