@@ -3,6 +3,7 @@ class FightScreen {
   Button[] p1Moves;
   Button[] p2Moves;
 
+//Constructor
   FightScreen() {
     p1_pokemon.pos = new PVector(width / 4, height / 2);
     p2_pokemon.pos = new PVector(3 * width / 4, height / 2);

@@ -4,6 +4,7 @@ class Timer {
   int pausedTime;   // Time at which timer is paused
   boolean paused;   // Is the timer paused?
 
+  //Constructor
   Timer(int dt) {
     displayTime = dt;
     milliStart = millis();

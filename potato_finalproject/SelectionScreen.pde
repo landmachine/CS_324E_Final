@@ -5,6 +5,7 @@ class SelectionScreen {
   
   PImage pokemon_image;
   
+  //Constructor
   SelectionScreen() {
     this.cards = new ArrayList<Card>();
     this.pokemons = new ArrayList<Pokemon>();
@@ -17,7 +18,9 @@ class SelectionScreen {
       String type2 = row.getString("type2");
       int hp = row.getInt("hp");
       int attack = row.getInt("attack");
-      println(name, "->", type1, "->", type2, "->", hp, "->", attack);
+      int defense = row.getInt("defense");
+      int speed = row.getInt("speed");
+      println(name, "->", type1, "->", type2, "->", hp, "->", attack, "->", defense, "->", speed);
       
       String image_id = name + ".png";
       pokemon_image = loadImage(image_id);
@@ -27,7 +30,7 @@ class SelectionScreen {
       int x = counter % 3;
       int y = counter / 3;
       this.cards.add(new Card(250 + (150 * x), 125 + (y * 150), 100, 100, name));
-      this.pokemons.add(new Pokemon(width/2, height/2, name, type1, type2, hp, attack, pokemon_image));
+      this.pokemons.add(new Pokemon(width/2, height/2, name, type1, type2, hp, attack, defense, speed, pokemon_image));
       counter++;
     }
     randomPick = new Button(100, height-100, 130, 50, "Random Pick");
