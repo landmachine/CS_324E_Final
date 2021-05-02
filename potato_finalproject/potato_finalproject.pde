@@ -26,7 +26,6 @@ void setup() {
 }
 
 void draw() {
-  
   //if (time.isTime()){
     background(222);
     //add back in calls for screens - switching betwen them too
