@@ -6,8 +6,10 @@ class FightScreen {
   Button move4Button;
   
   FightScreen() {
-    p1 = new Pokemon(new PVector(width / 4, height / 2));
-    p2 = new Pokemon(new PVector(3 * width / 4, height / 2));
+    p1_pokemon.pos = new PVector(width / 4, height / 2);
+    p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
+    
+    
     rectMode(CORNER);
     move1Button = new Button(450, 650, 200, 75, "MOVE 1");
     move2Button = new Button(675, 650, 200, 75, "MOVE 2");
@@ -20,10 +22,10 @@ class FightScreen {
 
   void display() {
     background(100);
-    p1.display();
+    p1_pokemon.display();
     fill(255);
     text("Player 1", width / 4, height / 2);
-    p2.display();
+    p2_pokemon.display();
     fill(255);
     text("Player 2", 3 * width / 4, height / 2);
     

@@ -6,8 +6,8 @@ SelectionScreen screen_select;
 FightScreen screen_fight;
 boolean screenSwitched;
 
-Pokemon p1;
-Pokemon p2;
+Pokemon p1_pokemon;
+Pokemon p2_pokemon;
 
 void setup() {
   size(800, 800);

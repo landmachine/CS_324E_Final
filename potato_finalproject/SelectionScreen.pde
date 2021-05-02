@@ -17,10 +17,13 @@ class SelectionScreen {
       
       int x = counter % 3;
       int y = counter / 3;
-      cards.add(new Card(250 + (150 * x), 200 + (y * 150), 100, 100, name));
+      cards.add(new Card(250 + (150 * x), 125 + (y * 150), 100, 100, name));
       pokemons.add( new Pokemon( new PVector(width/2, height/2) ) );
       counter++;
     }
+    
+    p1_pokemon = pokemons.get(0);
+    p2_pokemon = pokemons.get(1);
     
   }
 
