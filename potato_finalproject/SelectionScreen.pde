@@ -29,7 +29,7 @@ class SelectionScreen {
       
       int x = counter % 3;
       int y = counter / 3;
-      this.cards.add(new Card(250 + (150 * x), 125 + (y * 150), 100, 100, name));
+      this.cards.add(new Card(250 + (150 * x), 125 + (y * 150), 100, 100, name, pokemon_image));
       this.pokemons.add(new Pokemon(width/2, height/2, name, type1, type2, hp, attack, defense, speed, pokemon_image));
       counter++;
     }

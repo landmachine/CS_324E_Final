@@ -32,9 +32,9 @@ void setup() {
   screen_fight = new FightScreen();
   screenSwitched = false;
   
-  selectionMusic = new SoundFile(this, "Ever Grande City 8Bit.mp3");
-  fightMusic = new SoundFile(this, "GUILES THEME.mp3");
-  selectionMusic.loop();
+  //selectionMusic = new SoundFile(this, "Ever Grande City 8Bit.mp3");
+  //fightMusic = new SoundFile(this, "GUILES THEME.mp3");
+  //selectionMusic.loop();
 }
 
 void draw() {
@@ -52,12 +52,12 @@ void draw() {
 
 void mousePressed() {
   if (screenSwitched) {
-    fightMusic.stop();
-    selectionMusic.loop();
+    //fightMusic.stop();
+    //selectionMusic.loop();
     screenSwitched = false;
   } else {
-    selectionMusic.stop();
-    fightMusic.loop();
+    //selectionMusic.stop();
+    //fightMusic.loop();
     screenSwitched = true;
   }
 }
