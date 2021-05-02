@@ -1,4 +1,4 @@
-Name,Type 1,Type 2,HP,Attack,Defense,Speed,Moves,Power,Accuracy,Move Types
+name,type1,type2,hp,attack,defense,speed,moves,movePower,accuracy,moveTypes
 Pikachu,Electric,NONE,35,55,40,90,"Thunder,Thunderbolt,Slam,Quick Attack",110 90 80 40,70 100 75 100,"Electric,Electric,Normal,Normal"
 Venusaur,Grass,Poison,80,82,83,80,"Solar Beam,Double-Edge, Seed Bomb, Vine Whip",120 120 90 45,60 60 85 100,"Grass,Normal,Grass,Grass"
 Charizard,Fire,Flying,78,84,78,100,"Inferno,Flamethrower,Slash,Dragon Breath",100 70 70 60,50 100 100 100,"Fire,Fire,Normal,Dragon"
