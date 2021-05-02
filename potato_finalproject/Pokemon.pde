@@ -4,6 +4,7 @@ class Pokemon {
   int hp, attack, defense, speed;
   PImage image;
   
+  //Constructor
   Pokemon(float _posX, float _posY, String _name, String _type1, String _type2, int _hp, int _attack, int _defense, int _speed, PImage _image) {
     this.pos = new PVector(_posX, _posY);
     this.name = _name;

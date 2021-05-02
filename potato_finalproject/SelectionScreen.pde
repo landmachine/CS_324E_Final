@@ -5,6 +5,7 @@ class SelectionScreen {
   
   PImage pokemon_image;
   
+  //Constructor
   SelectionScreen() {
     this.cards = new ArrayList<Card>();
     this.pokemons = new ArrayList<Pokemon>();
