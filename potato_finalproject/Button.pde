@@ -3,8 +3,8 @@ class Button {
   PFont buttonFont;
   PShape buttonGraphic;
   String displayText;
-  color c_hover = color(200);
-  color c_static = color(250);
+  color c_hover = color(50);
+  color c_static = color(25);
 
   // Standard hover/static colors
   Button(float _xPos, float _yPos, float _xLen, float _yLen, String _displayText) {

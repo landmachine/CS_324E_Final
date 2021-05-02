@@ -43,9 +43,9 @@ void setup() {
 
 void draw() {
   if (frameCount == 1) { //Load in music- time intense
-    selectionMusic = new SoundFile(this, "Ever Grande City 8Bit.mp3");
-    fightMusic = new SoundFile(this, "GUILES THEME.mp3");
-    selectionMusic.loop();
+    //selectionMusic = new SoundFile(this, "Ever Grande City 8Bit.mp3");
+    //fightMusic = new SoundFile(this, "GUILES THEME.mp3");
+    //selectionMusic.loop();
   } else {
     //if (time.isTime()){
     background(222);
