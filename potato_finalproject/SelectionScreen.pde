@@ -1,8 +1,11 @@
 class SelectionScreen {
-
+  //int cardAmount = 9;
+  ArrayList<Card> cards;
+  
   SelectionScreen() {
+    
     cards = new ArrayList<Card>();
-    for (int i = 0; i < cardAmount; i++) {
+    for (int i = 0; i < pokemonCount; i++) {
       int x = i % 3;
       int y = i / 3;
       cards.add(new Card(250 + (150 * x), 200 + (y * 150), 100, 100, "CARD"));

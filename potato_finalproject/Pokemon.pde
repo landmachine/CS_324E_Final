@@ -12,8 +12,4 @@ class Pokemon {
     rect(pos.x, pos.y, 128, 128);
   }
 
-  void display_card() {
-    fill(255);
-    rect(pos.x, pos.y, card_size, card_size);
-  }
 }

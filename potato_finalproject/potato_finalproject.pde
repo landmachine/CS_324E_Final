@@ -1,39 +1,48 @@
+Table excel;
+int pokemonCount;
+
+Timer time;
+SelectionScreen screen_select;
+FightScreen screen_fight;
+boolean screenSwitched;
+
 Pokemon p1;
 Pokemon p2;
-Button move1Button;
-Button move2Button;
-Button move3Button;
-Button move4Button;
-
-SelectionScreen screen1;
-FightScreen screen2;
-
-boolean firstScreen;
-
-int cardAmount = 9;
-ArrayList<Card> cards;
 
 void setup() {
   size(800, 800);
-  screen1 = new SelectionScreen();
-  screen2 = new FightScreen();
-  firstScreen = true;
+  
+  excel = loadTable("Pokemon.csv", "header");
+  pokemonCount = excel.getRowCount();
+  
+  println("There are "+ pokemonCount +" pokemons in the table");
+  
+  //time = new Timer(60);
+  //time.pause();
+  screen_select = new SelectionScreen();
+  screen_fight = new FightScreen();
+  screenSwitched = false;
+  
 }
 
 void draw() {
-  background(222);
-  //add back in calls for screens - switching betwen them too
-  if (firstScreen) {
-    screen1.display();
-  } else {
-    screen2.display();
-  }
+  
+  //if (time.isTime()){
+    background(222);
+    //add back in calls for screens - switching betwen them too
+    if (!screenSwitched) {
+      screen_select.display();
+    } else {
+      screen_fight.display();
+    }
+  //}
+
 }
 
 void mousePressed() {
-  if (firstScreen) {
-    firstScreen = false;
+  if (screenSwitched) {
+    screenSwitched = false;
   } else {
-    firstScreen = true;
+    screenSwitched = true;
   }
 }

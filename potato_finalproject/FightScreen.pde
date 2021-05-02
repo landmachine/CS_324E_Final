@@ -1,5 +1,9 @@
 class FightScreen {
   HealthBar p1Health, p2Health;
+  Button move1Button;
+  Button move2Button;
+  Button move3Button;
+  Button move4Button;
   
   FightScreen() {
     p1 = new Pokemon(new PVector(width / 4, height / 2));
