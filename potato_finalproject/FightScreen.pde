@@ -1,20 +1,26 @@
 class FightScreen {
   HealthBar p1Health, p2Health;
-  Button move1Button;
-  Button move2Button;
-  Button move3Button;
-  Button move4Button;
-  
+  Button[] p1Moves;
+  Button[] p2Moves;
+
   FightScreen() {
     p1_pokemon.pos = new PVector(width / 4, height / 2);
     p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
-    
-    
-    rectMode(CORNER);
-    move1Button = new Button(450, 650, 200, 75, "MOVE 1");
-    move2Button = new Button(675, 650, 200, 75, "MOVE 2");
-    move3Button = new Button(450, 750, 200, 75, "MOVE 3");
-    move4Button = new Button(675, 750, 200, 75, "MOVE 4");
+
+    p1Moves = new Button[] {
+      new Button(2 * width/3, 650, 150, 75, "MOVE 1"), 
+      new Button(width - 90, 650, 150, 75, "MOVE 2"), 
+      new Button(2 * width/3, 750, 150, 75, "MOVE 3"), 
+      new Button(width -90, 750, 150, 75, "MOVE 4")
+    };
+
+    p2Moves = new Button[] {
+      new Button(width/3, 650, 150, 75, "MOVE 1"), 
+      new Button(90, 650, 150, 75, "MOVE 2"), 
+      new Button(width/2, 750, 150, 75, "MOVE 3"), 
+      new Button(90, 750, 150, 75, "MOVE 4")
+    };
+
     textSize(20);
     p1Health = new HealthBar(width/2 - 200, height/2 - 200, 100, "Player1");
     p2Health = new HealthBar(width/2 + 200, height/2 - 200, 100, "Player2");
@@ -28,13 +34,15 @@ class FightScreen {
     p2_pokemon.display();
     fill(255);
     text("Player 2", 3 * width / 4, height / 2);
-    
-    move1Button.display();
-    move2Button.display();
-    move3Button.display();
-    move4Button.display();
-    text("Other player move buttons", 160, 750);
-    
+
+    for (Button button : p1Moves) {
+      button.display();
+    }
+
+    for (Button button : p2Moves) {
+      button.display();
+    }
+
     p1Health.display();
     p2Health.display();
   }
