@@ -1,9 +1,13 @@
+import processing.sound.*;
+
 Table excel;
 int pokemonCount;
 
 Timer time;
 SelectionScreen screen_select;
 FightScreen screen_fight;
+SoundFile selectionMusic;
+SoundFile fightMusic;
 boolean screenSwitched;
 
 Pokemon p1_pokemon;
@@ -23,6 +27,9 @@ void setup() {
   screen_fight = new FightScreen();
   screenSwitched = false;
   
+  selectionMusic = new SoundFile(this, "Ever Grande City 8Bit.mp3");
+  fightMusic = new SoundFile(this, "GUILES THEME.mp3");
+  selectionMusic.loop();
 }
 
 void draw() {
@@ -40,8 +47,12 @@ void draw() {
 
 void mousePressed() {
   if (screenSwitched) {
+    fightMusic.stop();
+    selectionMusic.loop();
     screenSwitched = false;
   } else {
+    selectionMusic.stop();
+    fightMusic.loop();
     screenSwitched = true;
   }
 }
