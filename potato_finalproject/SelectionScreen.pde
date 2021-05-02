@@ -11,14 +11,16 @@ class SelectionScreen {
     for (TableRow row : excel.rows()) {
       String name = row.getString("name");
       String type1 = row.getString("type1");
-      String hp = row.getString("hp");
+      String type2 = row.getString("type2");
+      int hp = row.getInt("hp");
+      int attack = row.getInt("attack");
       
-      println(name + " (" + type1 + ") HP: " + hp);
+      println(name, "->", type1, "->", type2, "->", hp, "->", attack);
       
       int x = counter % 3;
       int y = counter / 3;
       cards.add(new Card(250 + (150 * x), 125 + (y * 150), 100, 100, name));
-      pokemons.add( new Pokemon( new PVector(width/2, height/2) ) );
+      pokemons.add(new Pokemon(width/2, height/2, name, type1, type2, hp, attack));
       counter++;
     }
     

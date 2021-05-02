@@ -1,9 +1,15 @@
 class Pokemon {
   PVector pos;
-  int card_size = 50;
+  String name, type1, type2;
+  int hp, attack;
 
-  Pokemon(PVector _position) {
-    this.pos = _position;
+  Pokemon(float _posX, float _posY, String _name, String _type1, String _type2, int _hp, int _attack) {
+    this.pos = new PVector(_posX, _posY);
+    this.name = _name;
+    this.type1 = _type1;
+    this.type2 = _type2;
+    this.hp = _hp;
+    this.attack = _attack;
   }
 
   void display() {
