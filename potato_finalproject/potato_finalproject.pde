@@ -17,7 +17,7 @@ SoundFile fightMusic;
 
 void setup() {
   size(800, 800);
-  
+
   // Loading screen
   fill(0);
   textSize(50);
