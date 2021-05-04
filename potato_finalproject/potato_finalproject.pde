@@ -87,8 +87,10 @@ void mousePressed() {
     // If two pokemons have been selected switch to the other screen and change the music
     if (p1_pokemon != null && p2_pokemon != null){
       selectionMusic.stop();
-      screenSwitched = true; 
+      screen_fight.update_moves(); // update moves according to the pokemons
+      screenSwitched = true; // switch to the fight screen
       fightMusic.loop();
+
     }
   }
   
