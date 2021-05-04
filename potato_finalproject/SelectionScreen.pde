@@ -1,7 +1,4 @@
-class SelectionScreen {
-  ArrayList<Card> cards;
-  ArrayList<Pokemon> pokemons;
-  
+class SelectionScreen {  
   PImage background_img;
   PImage pokemon_image;
   
@@ -10,8 +7,6 @@ class SelectionScreen {
   //Constructor
   SelectionScreen() {
     this.background_img = loadImage("retro2.jpg"); //background_poke.jpg
-    this.cards = new ArrayList<Card>();
-    this.pokemons = new ArrayList<Pokemon>();
     
     //initialize Cards and Pokemons using the data that is extracted from a excel file
     int counter = 0;
@@ -32,14 +27,14 @@ class SelectionScreen {
       
       int x = counter % 3;
       int y = counter / 3;
-      this.cards.add(new Card(250 + (150 * x), 125 + (y * 150), 100, 100, name, pokemon_image));
-      this.pokemons.add(new Pokemon(width/2, height/2, name, type1, type2, hp, attack, defense, speed, pokemon_image));
+      cards.add(new Card(250 + (150 * x), 125 + (y * 150), 100, 100, name, pokemon_image));
+      pokemons.add(new Pokemon(width/2, height/2, name, type1, type2, hp, attack, defense, speed, pokemon_image));
       counter++;
     }
-    randomPick = new Button(100, height-100, 130, 50, "Random Pick");
+    randomPick = new Button(85, height-50, 130, 50, "Random Pick", color(131, 138, 112), color(195, 207, 161));
     
-    p1_pokemon = pokemons.get(0);
-    p2_pokemon = pokemons.get(1);
+    //p1_pokemon = pokemons.get(0);
+    //p2_pokemon = pokemons.get(1);
     
   }
 
@@ -50,4 +45,5 @@ class SelectionScreen {
     }
     randomPick.display();
   }
+  
 }

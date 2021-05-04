@@ -2,25 +2,25 @@ class Button {
   PVector pos, size;
   PFont buttonFont;
   PShape buttonGraphic;
-  String displayText;
+  String text;
   color c_hover = color(200);
   color c_static = color(100);
 
   // Standard hover/static colors
-  Button(float _xPos, float _yPos, float _xLen, float _yLen, String _displayText) {
+  Button(float _xPos, float _yPos, float _xLen, float _yLen, String _text) {
     pos = new PVector(_xPos, _yPos);
     size = new PVector(_xLen, _yLen);
-    displayText = _displayText;
+    text = _text;
     buttonFont = createFont("SansSerif", 32);
     rectMode(CENTER);
     buttonGraphic = createShape(RECT, 0, 0, size.x, size.y);
   }
 
   //Change hover/statics colors
-  Button(float _xPos, float _yPos, float _xLen, float _yLen, String _displayText, color _hover, color _static) {
+  Button(float _xPos, float _yPos, float _xLen, float _yLen, String _text, color _hover, color _static) {
     pos = new PVector(_xPos, _yPos);
     size = new PVector(_xLen, _yLen);
-    displayText = _displayText;
+    text = _text;
     buttonFont = createFont("SansSerif", 32);
     rectMode(CENTER);
     buttonGraphic = createShape(RECT, 0, 0, size.x, size.y);
@@ -39,7 +39,7 @@ class Button {
     shapeMode(CENTER);
     shape(buttonGraphic, pos.x, pos.y);
     textAlign(CENTER, CENTER);
-    text(displayText, pos.x, pos.y-4);
+    text(text, pos.x, pos.y-4);
   }
 
   boolean hover() {

@@ -3,6 +3,12 @@ import processing.sound.*;
 Table excel;
 int pokemonCount;
 
+Pokemon p1_pokemon;
+Pokemon p2_pokemon;
+
+ArrayList<Card> cards;
+ArrayList<Pokemon> pokemons;
+
 Timer time;
 SelectionScreen screen_select;
 FightScreen screen_fight;
@@ -10,10 +16,6 @@ boolean screenSwitched;
 
 SoundFile selectionMusic;
 SoundFile fightMusic;
-
-Pokemon p1_pokemon;
-Pokemon p2_pokemon;
-
 
 void setup() {
   size(800, 800);
@@ -24,6 +26,10 @@ void setup() {
   textAlign(CENTER);
   text("Loading....", width/2, height/2);
 
+  // Load the music files
+  selectionMusic = new SoundFile(this, "Ever_grande_city_8Bit.mp3");
+  fightMusic = new SoundFile(this, "Guiles_theme.mp3");
+
   //// Create a Timer
   //time = new Timer(60);
   //time.pause();
@@ -32,45 +38,68 @@ void setup() {
   excel = loadTable("Pokemon.csv", "header");
   pokemonCount = excel.getRowCount();
   
+  p1_pokemon = null;
+  p2_pokemon = null;
+  cards = new ArrayList<Card>();
+  pokemons = new ArrayList<Pokemon>();
+    
   //Initialize Screens
   screen_select = new SelectionScreen();
   screen_fight = new FightScreen();
   screenSwitched = false;
 
+  // start the music
+  selectionMusic.loop();
+
+} 
   
-  //selectionMusic = new SoundFile(this, "Ever Grande City 8Bit.mp3");
-  //fightMusic = new SoundFile(this, "GUILES THEME.mp3");
-  //selectionMusic.loop();
-
-}
-
 
 void draw() {
-  if (frameCount == 1) { //Load in music- time intense
-    //selectionMusic = new SoundFile(this, "Ever Grande City 8Bit.mp3");
-    //fightMusic = new SoundFile(this, "GUILES THEME.mp3");
-    //selectionMusic.loop();
-  } else {
     //if (time.isTime()){
-
+      
     //add back in calls for screens - switching betwen them too
     if (!screenSwitched) {
       screen_select.display();
     } else {
       screen_fight.display();
     }
-  }
+    
+    //}
+
 }
 
 
 void mousePressed() {
-  if (screenSwitched) {
-    //fightMusic.stop();
-    //selectionMusic.loop();
-    screenSwitched = false;
-  } else {
-    //selectionMusic.stop();
-    //fightMusic.loop();
-    screenSwitched = true;
+  println("P1:", p1_pokemon, "P2:", p2_pokemon);
+  
+  if (!screenSwitched){
+    if (p1_pokemon == null){
+      int index = 0;
+      for (Card a_card : cards) {
+        if (a_card.button.hover()){
+          p1_pokemon = pokemons.get(index);
+          p1_pokemon.pos = new PVector(width / 4, height / 2);
+        }
+        index++;
+      }
+    }else if (p2_pokemon == null){
+      int index = 0;
+      for (Card a_card : cards) {
+        if (a_card.button.hover()){
+          p2_pokemon = pokemons.get(index);
+          p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
+        }
+        index++;
+      }
+    }
+    
+    if (p1_pokemon != null && p2_pokemon != null){
+      // Two pokemons have been selected switch to the other screen
+      selectionMusic.stop();
+      screenSwitched = true; 
+      fightMusic.loop();
+    }
+    
   }
+
 }
