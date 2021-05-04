@@ -25,8 +25,8 @@ class SelectionScreen {
       pokemon_image.resize(0, 100);
       
       
-      int x = counter % 3;
-      int y = counter / 3;
+      int x = counter % (int)sqrt(pokemonCount);
+      int y = counter / (int)sqrt(pokemonCount);
       cards.add(new Card(250 + (150 * x), 125 + (y * 150), 100, 100, name, pokemon_image));
       pokemons.add(new Pokemon(width/2, height/2, name, type1, type2, hp, attack, defense, speed, pokemon_image));
       counter++;
