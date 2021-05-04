@@ -1,12 +1,15 @@
 class SelectionScreen {
   ArrayList<Card> cards;
   ArrayList<Pokemon> pokemons;
-  Button randomPick;
   
+  PImage background_img;
   PImage pokemon_image;
+  
+  Button randomPick;
   
   //Constructor
   SelectionScreen() {
+    this.background_img = loadImage("retro2.jpg"); //background_poke.jpg
     this.cards = new ArrayList<Card>();
     this.pokemons = new ArrayList<Pokemon>();
     
@@ -41,26 +44,10 @@ class SelectionScreen {
   }
 
   void display() {
+    image(background_img, 0,0);
     for (Card a_card : cards) {
       a_card.display();
     }
     randomPick.display();
   }
 }
-
-
-
-
-
-
-
-//PImage[] fox = new PImage[6];
-
-  
-//  //load fox sprites and resize:
-//  for (int i=0; i<6; i++){
-//    String image_id = "player-run-" + nf(i+1, 1) + ".png";
-//    fox[i] = loadImage(id);
-//    fox[i].resize(0, 100);
-//  }  
-//image(fox[index], width/2-50, height/2-50);

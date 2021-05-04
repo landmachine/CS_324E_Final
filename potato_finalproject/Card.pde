@@ -11,7 +11,7 @@ class Card {
     this.size = new PVector(_xSize, _ySize);
     this.name = _name;
     this.image = _image;
-    this.button = new Button(pos.x, pos.y, size.x, size.y, name);
+    this.button = new Button(pos.x, pos.y, size.x, size.y, "", color(131, 138, 112), color(195, 207, 161)); //195, 207, 161
   }
 
   void display() {

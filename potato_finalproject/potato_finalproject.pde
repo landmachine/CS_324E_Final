@@ -6,30 +6,33 @@ int pokemonCount;
 Timer time;
 SelectionScreen screen_select;
 FightScreen screen_fight;
+boolean screenSwitched;
+
 SoundFile selectionMusic;
 SoundFile fightMusic;
-boolean screenSwitched;
 
 Pokemon p1_pokemon;
 Pokemon p2_pokemon;
 
+
 void setup() {
-  //Display loading screen
   size(800, 800);
+  
+  // Loading screen
+  fill(0);
   textSize(50);
   textAlign(CENTER);
-  fill(0);
   text("Loading....", width/2, height/2);
 
-  //Create Timer
+  //// Create a Timer
   //time = new Timer(60);
   //time.pause();
 
-  //load in pokemon
+  // Load the excel file
   excel = loadTable("Pokemon.csv", "header");
   pokemonCount = excel.getRowCount();
   
-  //Initialize screens
+  //Initialize Screens
   screen_select = new SelectionScreen();
   screen_fight = new FightScreen();
   screenSwitched = false;
@@ -41,6 +44,7 @@ void setup() {
 
 }
 
+
 void draw() {
   if (frameCount == 1) { //Load in music- time intense
     //selectionMusic = new SoundFile(this, "Ever Grande City 8Bit.mp3");
@@ -48,7 +52,7 @@ void draw() {
     //selectionMusic.loop();
   } else {
     //if (time.isTime()){
-    background(222);
+
     //add back in calls for screens - switching betwen them too
     if (!screenSwitched) {
       screen_select.display();
@@ -57,6 +61,7 @@ void draw() {
     }
   }
 }
+
 
 void mousePressed() {
   if (screenSwitched) {
