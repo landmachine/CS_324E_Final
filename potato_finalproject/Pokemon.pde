@@ -3,9 +3,12 @@ class Pokemon {
   String name, type1, type2;
   int hp, attack, defense, speed;
   PImage image;
+  String[] move_names, move_types;
+  int[] move_powers, move_accuracy;
   
   //Constructor
-  Pokemon(float _posX, float _posY, String _name, String _type1, String _type2, int _hp, int _attack, int _defense, int _speed, PImage _image) {
+  Pokemon(float _posX, float _posY, String _name, String _type1, String _type2, int _hp,int _attack, int _defense, 
+  int _speed, PImage _image, String[] _move_names, int[] _move_powers, int[] _move_accuracy, String[] _move_types) {
     this.pos = new PVector(_posX, _posY);
     this.name = _name;
     this.type1 = _type1;
@@ -15,6 +18,10 @@ class Pokemon {
     this.defense = _defense;
     this.speed = _speed;
     this.image = _image;
+    this.move_names = _move_names;
+    this.move_powers = _move_powers;
+    this.move_accuracy = _move_accuracy;
+    this.move_types = _move_types;
   }
 
   void display() {

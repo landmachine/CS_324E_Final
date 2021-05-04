@@ -1,8 +1,8 @@
-name,type1,type2,hp,attack,defense,speed,moves,movePower,accuracy,moveTypes
+name,type1,type2,hp,attack,defense,speed,move_names,move_powers,move_accuracy,move_types
 Pikachu,Electric,NONE,35,55,40,90,"Thunder,Thunderbolt,Slam,Quick Attack",110 90 80 40,70 100 75 100,"Electric,Electric,Normal,Normal"
 Venusaur,Grass,Poison,80,82,83,80,"Solar Beam,Double-Edge, Seed Bomb, Vine Whip",120 120 90 45,60 60 85 100,"Grass,Normal,Grass,Grass"
 Charizard,Fire,Flying,78,84,78,100,"Inferno,Flamethrower,Slash,Dragon Breath",100 70 70 60,50 100 100 100,"Fire,Fire,Normal,Dragon"
-Blastoise,Water,NONE,79,83,100,78,"Hydro Pump,Aqua Tail,Water Pulse, Bite",110 90 60 60,70 85 100 100,"Water,Water,Water,Dark"
+Blastoise,Water,NONE,79,83,100,78,"Hydro Pump,Aqua Tail,Water Pulse,Bite",110 90 60 60,70 85 100 100,"Water,Water,Water,Dark"
 Umbreon,Dark,NONE,95,65,110,65,"Dark Pulse,Bite,Quick Attack,Take Down,Swift",80 60 40 90,90 100 100 80,"Dark,Dark,Normal,Normal"
 Onix,Rock,Ground,35,45,160,70,"Stone Edge,Iron Tail,Slam,Sand Tomb",100 100 80 35,80 70 70 85,"Rock,Steel,Normal,Ground"
 Alakazam,Psychic,NONE,55,50,45,120,"Psychic,Psyshock,Psycho Cut,Confusion",90 80 70 50,70 80 90 100,"Psychic,Psychic,Psychic,Psychic"

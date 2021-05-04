@@ -1,11 +1,9 @@
 import processing.sound.*;
 
-Table excel;
-int pokemonCount;
-
 Pokemon p1_pokemon;
 Pokemon p2_pokemon;
 
+int pokemonCount;
 ArrayList<Card> cards;
 ArrayList<Pokemon> pokemons;
 
@@ -33,10 +31,6 @@ void setup() {
   //// Create a Timer
   //time = new Timer(60);
   //time.pause();
-
-  // Load the excel file
-  excel = loadTable("Pokemon.csv", "header");
-  pokemonCount = excel.getRowCount();
   
   p1_pokemon = null;
   p2_pokemon = null;
