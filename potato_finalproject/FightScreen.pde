@@ -2,8 +2,9 @@ class FightScreen {
   HealthBar p1Health, p2Health;
   Button[] p1Moves;
   Button[] p2Moves;
-
-//Constructor
+  int moveAmount = 4;
+  
+  //Constructor
   FightScreen() {
     
     p1Moves = new Button[] {
@@ -45,4 +46,17 @@ class FightScreen {
     p1Health.display();
     p2Health.display();
   }
+  
+  
+  void update_moves(){
+    for (int i=0; i<moveAmount; i++){
+      p1Moves[i].text = p1_pokemon.move_names[i];
+      p2Moves[i].text = p2_pokemon.move_names[i];
+    }
+  }
+  
+  void update_test(){
+    //test
+  }
+  
 }
