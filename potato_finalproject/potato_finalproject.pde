@@ -70,8 +70,6 @@ void draw() {
 
 
 void mousePressed() {
-  println("P1:", p1_pokemon, "P2:", p2_pokemon);
-  
   if (!screenSwitched){
     if (p1_pokemon == null){
       int index = 0;
@@ -92,14 +90,13 @@ void mousePressed() {
         index++;
       }
     }
-    
+    // If two pokemons have been selected switch to the other screen and change the music
     if (p1_pokemon != null && p2_pokemon != null){
-      // Two pokemons have been selected switch to the other screen
       selectionMusic.stop();
       screenSwitched = true; 
       fightMusic.loop();
     }
-    
   }
-
+  
+  println("P1:", p1_pokemon, "P2:", p2_pokemon);
 }
