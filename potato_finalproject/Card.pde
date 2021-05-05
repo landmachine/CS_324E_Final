@@ -4,6 +4,7 @@ class Card {
   PVector size;
   String name;
   PImage image;
+  //boolean chosen;
 
   //Constructor
   Card (float _xPos, float _yPos, float _xSize, float _ySize, String _name, PImage _image) {
