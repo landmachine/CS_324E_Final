@@ -116,6 +116,11 @@ void mousePressed() {
     for (Button a_move : screen_fight.p1Moves) {
       if (a_move.hover()) {
         screen_fight.p1choice = index;
+        tint(255, 0, 0, 127);
+        p2_pokemon.display();
+        delay(250);
+        noTint();
+        p2_pokemon.display();
       }
       index++;
     }
@@ -123,6 +128,11 @@ void mousePressed() {
     for (Button a_move : screen_fight.p2Moves) {
       if (a_move.hover()) {
         screen_fight.p2choice = index;
+        tint(255, 0, 0, 127);
+        p1_pokemon.display();
+        noTint();
+        delay(250);
+        p1_pokemon.display();
       }
       index++;
     }

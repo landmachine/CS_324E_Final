@@ -2,7 +2,7 @@ class HealthBar {
   int xLoc, yLoc;
   int totalHealth, actualHealth;
   String pokeName;
-  
+
   //Constructor
   HealthBar(int _x, int _y, int _totalHealth, String _pokeName) {
     xLoc = _x;
