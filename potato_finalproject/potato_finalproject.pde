@@ -28,7 +28,7 @@ void setup() {
   fill(0);
   textSize(50);
   textAlign(CENTER);
-  text("Loading....", width/2, height/2);
+  text("Loading...", width/2, height/2);
 
   //set sound variables
   initializeMusic = true;
@@ -86,6 +86,7 @@ void mousePressed() {
         if (a_card.button.hover()) {
           p1_pokemon = pokemons.get(index);
           p1_pokemon.pos = new PVector(width / 4, height / 2);
+          // also want to draw pokemon in box to show it was selected
         }
         index++;
       }
@@ -95,6 +96,7 @@ void mousePressed() {
         if (a_card.button.hover()) {
           p2_pokemon = pokemons.get(index);
           p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
+          // also want to draw pokemon in box to show it was selected
         }
         index++;
       }
@@ -116,11 +118,35 @@ void mousePressed() {
     for (Button a_move : screen_fight.p1Moves) {
       if (a_move.hover()) {
         screen_fight.p1choice = index;
+        // start move stuff
+        if (p1_pokemon.move_types[screen_fight.p1choice].equals("Electric")) {
+          println("move is electric type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Normal")) {
+          println("move is normal type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Grass")) {
+          println("move is grass type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Fire")) {
+          println("move is fire type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Dragon")) {
+          println("move is dragon type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Water")) {
+          println("move is water type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Dark")) {
+          println("move is dark type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Psychic")) {
+          println("move is psychic type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Poison")) {
+          println("move is poison type");
+        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Fairy")) {
+          println("move is fairy type");
+        } else {
+          println("ya done goofed. move type not recognized");
+        }
         tint(255, 0, 0, 127);
         p2_pokemon.display();
-        delay(250);
         noTint();
         p2_pokemon.display();
+        // end move stuff
       }
       index++;
     }

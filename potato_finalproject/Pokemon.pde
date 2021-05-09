@@ -27,6 +27,7 @@ class Pokemon {
 
   void display() {
     fill(0);
+    imageMode(CENTER);
     image(this.image, pos.x, pos.y);
   }
 }

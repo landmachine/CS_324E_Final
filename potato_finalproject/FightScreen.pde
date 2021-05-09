@@ -10,7 +10,7 @@ class FightScreen {
   //Constructor
   FightScreen() {
     background = loadImage("bg.png");
-    
+
     p1choice = -1;
     p2choice = -1;
 
@@ -40,11 +40,7 @@ class FightScreen {
     imageMode(CORNERS);
     image(background, 0, 0, width, height);
     p1_pokemon.display();
-    //fill(255);
-    //text("Player 1", width / 4, height / 2);
     p2_pokemon.display();
-    //fill(255);
-    //text("Player 2", 3 * width / 4, height / 2);
 
     for (Button button : p1Moves) {
       button.display();

@@ -22,7 +22,11 @@ class HealthBar {
     rect(xLoc, yLoc, 90, 50, 7);
     fill(color(0, 255, 0));
     rectMode(CORNER);
-    rect(xLoc - 40, yLoc + 10, 80 - 80*(totalHealth - actualHealth)/totalHealth, 10);
+    if ((80 - 80*(totalHealth - actualHealth)/totalHealth) <= (xLoc - 40)) {
+      //health is 0
+    } else {
+      rect(xLoc - 40, yLoc + 10, 80 - 80*(totalHealth - actualHealth)/totalHealth, 10);
+    }
     fill(0);
     textAlign(CENTER);
     text(pokeName, xLoc, yLoc);
