@@ -49,7 +49,6 @@ void setup() {
   screenSwitched = false;
 } 
 
-
 void draw() {
   if (initializeMusic) {
     // Load the music files
@@ -74,23 +73,22 @@ void draw() {
   //}
 }
 
-
 void mousePressed() {
   // Mute Sound Button
   if (soundControl.hover()) {
     soundControl.muteSwitch();
   }
-  
+
   // Differentiate screens for different buttons
   if (!screenSwitched) { //SELECTION SCREEN
-  
+
     if (screen_select.player1Turn) {
       int index = 0;
       for (Card a_card : cards) {
         if (a_card.button.hover()) {
           p1_pokemon = pokemons.get(index).clone();
           p1_pokemon.pos = new PVector(width / 4, height / 2);
-          
+
           screen_select.player1Turn = false;
         }
         index++;
@@ -101,20 +99,20 @@ void mousePressed() {
         if (a_card.button.hover()) {
           p2_pokemon = pokemons.get(index).clone();
           p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
-          
+
           screen_select.player1Turn = true;
         }
         index++;
       }
     }
-    
+
     // Allow players to change turns
     if (screen_select.player1_selection.hover()) {
       screen_select.player1Turn = true;
     } else if (screen_select.player2_selection.hover()) {
       screen_select.player1Turn = false;
     }
-    
+
     // If two pokemons have been selected switch to the other screen and change the music
     if (p1_pokemon != null && p2_pokemon != null) {
       selectionMusic.stop();
@@ -122,11 +120,9 @@ void mousePressed() {
       screenSwitched = true; // switch to the fight screen
       fightMusic.loop();
     }
-    
   }//SELECTION SCREEN END
-  
+
   else { //FIGHT SCREEN
-  
     int index = 0;
     for (Button a_move : screen_fight.p1Moves) {
       if (a_move.hover()) {
@@ -175,10 +171,17 @@ void mousePressed() {
       }
       index++;
     }
-    
   }//FIGHT SCREEN END
 
   //testing pokemon selection
-  if (p1_pokemon != null){print("P1:", p1_pokemon.name, "  ");}else{print("P1:", p1_pokemon, "  ");}
-  if (p2_pokemon != null){println("P2:", p2_pokemon.name);}else{println("P2:", p2_pokemon);}
+  if (p1_pokemon != null) {
+    print("P1:", p1_pokemon.name, "  ");
+  } else {
+    print("P1:", p1_pokemon, "  ");
+  }
+  if (p2_pokemon != null) {
+    println("P2:", p2_pokemon.name);
+  } else {
+    println("P2:", p2_pokemon);
+  }
 }
