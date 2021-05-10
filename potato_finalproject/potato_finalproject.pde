@@ -144,30 +144,6 @@ void mousePressed() {
     for (Button a_move : screen_fight.p1Moves) {
       if (a_move.hover()) {
         screen_fight.p1choice = index;
-        // start move stuff
-        if (p1_pokemon.move_types[screen_fight.p1choice].equals("Electric")) {
-          println("move is electric type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Normal")) {
-          println("move is normal type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Grass")) {
-          println("move is grass type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Fire")) {
-          println("move is fire type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Dragon")) {
-          println("move is dragon type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Water")) {
-          println("move is water type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Dark")) {
-          println("move is dark type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Psychic")) {
-          println("move is psychic type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Poison")) {
-          println("move is poison type");
-        } else if (p1_pokemon.move_types[screen_fight.p1choice].equals("Fairy")) {
-          println("move is fairy type");
-        } else {
-          println("ya done goofed. move type not recognized");
-        }
         tint(255, 0, 0, 127);
         p2_pokemon.display();
         noTint();
@@ -183,7 +159,7 @@ void mousePressed() {
         tint(255, 0, 0, 127);
         p1_pokemon.display();
         noTint();
-        delay(250);
+        delay(250);// 0.25 seconds -> (?)
         p1_pokemon.display();
       }
       index++;
