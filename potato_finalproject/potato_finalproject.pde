@@ -124,19 +124,6 @@ void mousePressed() {
       fightMusic.loop();
     }
     
-    
-  // Testing pokemon selection
-  if (p1_pokemon != null) {
-    print("P1:", p1_pokemon.name, "  ");
-  } else {
-    print("P1:", p1_pokemon, "  ");
-  }
-  if (p2_pokemon != null) {
-    println("P2:", p2_pokemon.name);
-  } else {
-    println("P2:", p2_pokemon);
-  } 
-    
   }//SELECTION SCREEN END
 
   else { //FIGHT SCREEN
