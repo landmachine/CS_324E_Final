@@ -21,6 +21,8 @@ boolean initializeMusic;
 color player1_color;
 color player2_color;
 
+pauseButton pauseControl;
+
 void setup() {
   size(800, 800);
 
@@ -34,10 +36,6 @@ void setup() {
   initializeMusic = true;
   soundControl = new soundButton(width - 30, 30);
 
-  //// Create a Timer
-  //time = new Timer(60);
-  //time.pause();
-
   p1_pokemon = null;
   p2_pokemon = null;
   cards = new ArrayList<Card>();
@@ -47,41 +45,66 @@ void setup() {
   screen_select = new SelectionScreen();
   screen_fight = new FightScreen();
   screenSwitched = false;
+
+  pauseControl = new pauseButton(width - 30, 80);
 } 
 
 void draw() {
-  if (initializeMusic) {
-    // Load the music files
-    selectionMusic = new SoundFile(this, "Ever_grande_city_8Bit.mp3");
-    fightMusic = new SoundFile(this, "Guiles_theme.mp3");
+  if (!pauseControl.paused) {
+    if (initializeMusic) {
+      // Load the music files
+      selectionMusic = new SoundFile(this, "Ever_grande_city_8Bit.mp3");
+      fightMusic = new SoundFile(this, "Guiles_theme.mp3");
 
-    // start the music
-    selectionMusic.amp(.3);
-    selectionMusic.loop();
-    fightMusic.amp(.2);
-    initializeMusic = false;
+      // start the music
+      selectionMusic.amp(.3);
+      selectionMusic.play();
+      fightMusic.amp(.2);
+      initializeMusic = false;
+    }
+    //add back in calls for screens - switching betwen them too
+    if (!screenSwitched) {
+      screen_select.display();
+      if (!selectionMusic.isPlaying()) {
+        selectionMusic.loop();
+      }
+    } else {
+      screen_fight.display();
+      if (!fightMusic.isPlaying()) {
+        fightMusic.loop();
+      }
+    }
+    soundControl.display();
   }
-  //if (time.isTime()){
-  //add back in calls for screens - switching betwen them too
-  if (!screenSwitched) {
-    screen_select.display();
-  } else {
-    screen_fight.display();
-  }
-  soundControl.display();
-
-  //}
+  pauseControl.display();
 }
 
 
 void mousePressed() {
   // Mute Sound Button
-  if (soundControl.hover()) {
+  if (pauseControl.hover()) {
+    if (!pauseControl.paused) {
+      if (!screenSwitched) {
+        selectionMusic.pause();
+      } else {
+        fightMusic.pause();
+      }
+      pauseControl.paused = true;
+    } else {
+        if (!screenSwitched) {
+        selectionMusic.play();
+      } else {
+        fightMusic.play();
+      }
+      pauseControl.paused = false;
+    }
+  }
+  if (soundControl.hover() && !pauseControl.paused) {
     soundControl.muteSwitch();
   }
 
   // Differentiate screens for different buttons
-  if (!screenSwitched) { //SELECTION SCREEN
+  if (!screenSwitched && !pauseControl.paused) { //SELECTION SCREEN
 
     if (screen_select.player1Turn) {
       int index = 0;
@@ -121,12 +144,25 @@ void mousePressed() {
       selectionMusic.stop();
       screen_fight.update_moves(); // update moves according to the pokemon
       screenSwitched = true; // switch to the fight screen
-      fightMusic.loop();
+      fightMusic.play();
     }
-    
+
+
+    // Testing pokemon selection
+    if (p1_pokemon != null) {
+      print("P1:", p1_pokemon.name, "  ");
+    } else {
+      print("P1:", p1_pokemon, "  ");
+    }
+    if (p2_pokemon != null) {
+      println("P2:", p2_pokemon.name);
+    } else {
+      println("P2:", p2_pokemon);
+    }
+
   }//SELECTION SCREEN END
 
-  else { //FIGHT SCREEN
+  else if (screenSwitched && !pauseControl.paused) { //FIGHT SCREEN
     int index = 0;
     for (Button a_move : screen_fight.p1Moves) {
       if (a_move.hover()) {
@@ -152,22 +188,39 @@ void mousePressed() {
       index++;
     }
   }//FIGHT SCREEN END
-
 }
 
 
 void keyPressed() {
+
+  // Pause the game
+  if (key == 'p') {
+    if (!pauseControl.paused) {
+      if (!screenSwitched) {
+        selectionMusic.pause();
+      } else {
+        fightMusic.pause();
+      }
+      pauseControl.paused = true;
+    } else {
+      if (!screenSwitched) {
+        selectionMusic.play();
+      } else {
+        fightMusic.play();
+      }
+      pauseControl.paused = false;
+    }
+  }
   // Differentiate screens for different key strokes
   if (!screenSwitched) { //SELECTION SCREEN
     // Nothing required for now...
-    
   }//SELECTION SCREEN END
-  
+
   else { //FIGHT SCREEN
-  
+
     // FIXME: We should connect these keystrokes to their corresponding buttons/moves
     // ----------------------------------------------------------------------------------
-    if (screen_fight.player1Turn){ // Checks who's turn it is
+    if (screen_fight.player1Turn) { // Checks who's turn it is
       // Player-1 Moves => "a, s, d, f"
       if (key == 'a') {
         println(key);
@@ -181,9 +234,7 @@ void keyPressed() {
       if (key == 'f') {
         println(key);
       }
-    }
-    
-    else{
+    } else {
       // Player-2 Moves => "j, k, l, ;"
       if (key == 'j') {
         println(key);
@@ -199,31 +250,12 @@ void keyPressed() {
       }
     } 
     // ----------------------------------------------------------------------------------
-  
   }//FIGHT SCREEN END
-  
-   
-  
+
+
+
   // Press "R" to restart the game
   if (key=='r') {
     setup();
   }
-
-  // FIXME: We should implement time (60 frames per second)
-  // -------------------------------------------------------------------------------
-  // Press "P" to pause the game
-  //if (key== 'p') {
-  //  if (!g_gameOver) {
-  //    //Pause/Unpause the game
-  //    if (!time.paused) {
-  //      time.pause();
-  //    } else {
-  //      time.unpause();
-  //    }
-  //  }
-  //}
-  // -------------------------------------------------------------------------------
-  
-  // Press "ESC" to quit the game (already exists)
-
 }
