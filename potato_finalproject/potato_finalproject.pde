@@ -100,6 +100,7 @@ void mousePressed() {
       for (Card a_card : cards) {
         if (a_card.button.hover()) {
           p1_pokemon = pokemons.get(index).clone();
+          screen_fight.p1Health = new HealthBar(width/2 - 200, height/2 - 200, p1_pokemon.hp, "Player1");
           p1_pokemon.pos = new PVector(width / 4, height / 2);
 
           screen_select.player1Turn = false;
@@ -111,6 +112,7 @@ void mousePressed() {
       for (Card a_card : cards) {
         if (a_card.button.hover()) {
           p2_pokemon = pokemons.get(index).clone();
+          screen_fight.p2Health = new HealthBar(width/2 + 200, height/2 - 200, p2_pokemon.hp, "Player2");
           p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
 
           screen_select.player1Turn = true;

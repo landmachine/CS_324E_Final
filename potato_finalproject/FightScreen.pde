@@ -8,7 +8,8 @@ class FightScreen {
   PImage background;
   color moveColor = color(0, 0, 0, 100);
   color floatColor = color(0, 0, 0, 50);
-  PFont retro = createFont("RetroGaming.ttf", 15);
+  int retroSize = 15;
+  PFont retro = createFont("RetroGaming.ttf", retroSize);
 
   //Constructor
   FightScreen() {
@@ -32,11 +33,19 @@ class FightScreen {
       new Button(width -90, 750, 150, 75, "MOVE 4", floatColor, moveColor)
     };
 
+<<<<<<< HEAD
+
+
+    typeChart = loadTable("typechart.csv", "header");
+
+    textSize(20);
+=======
     typeChart = loadTable("typechart.csv", "header");
 
     textSize(20);
     p1Health = new HealthBar(width/2 - 200, height/2 - 200, 100, "Player1");
     p2Health = new HealthBar(width/2 + 200, height/2 - 200, 100, "Player2");
+>>>>>>> 7293af999a1f40f08fe838a5b446969052eaacb6
   }
 
   void display() {
@@ -55,16 +64,24 @@ class FightScreen {
     }
 
     p1Health.display();
+    textSize(retroSize);
     p2Health.display();
+    textSize(retroSize);
 
     if (p1choice >= 0 && p2choice >= 0) {
       fight();
     }
     textFont(retro);
     if (p1choice == p2choice) {
+<<<<<<< HEAD
+      text("What wil Player 1 do?", 400, 565);
+    } else {
+      text("What will Player 2 do", 400, 565);
+=======
       text("What will Player 1 do?", 400, 565);
     } else {
       text("What will Player 2 do?", 400, 565);
+>>>>>>> 7293af999a1f40f08fe838a5b446969052eaacb6
     }
   }
 
@@ -94,8 +111,9 @@ class FightScreen {
     float damagep2_p1 = (p2_pokemon.move_powers[p2choice] * (p2_pokemon.attack/ p1_pokemon.defense))/5 * 
       random(0.85, 1) * typeMult_p2_p1;
 
-    println(damagep1_p2);
-    println(damagep2_p1);
+    //Update Health Bars
+    p1Health.updateHealth((int)damagep2_p1);
+    p2Health.updateHealth((int)damagep1_p2);
 
     //Reset move choices for next turn
     p1choice = -1;
