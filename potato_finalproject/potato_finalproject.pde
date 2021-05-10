@@ -148,18 +148,6 @@ void mousePressed() {
     }
 
 
-    // Testing pokemon selection
-    if (p1_pokemon != null) {
-      print("P1:", p1_pokemon.name, "  ");
-    } else {
-      print("P1:", p1_pokemon, "  ");
-    }
-    if (p2_pokemon != null) {
-      println("P2:", p2_pokemon.name);
-    } else {
-      println("P2:", p2_pokemon);
-    }
-
   }//SELECTION SCREEN END
 
   else if (screenSwitched && !pauseControl.paused) { //FIGHT SCREEN
@@ -187,6 +175,7 @@ void mousePressed() {
       }
       index++;
     }
+    
   }//FIGHT SCREEN END
 }
 
@@ -214,6 +203,7 @@ void keyPressed() {
   // Differentiate screens for different key strokes
   if (!screenSwitched) { //SELECTION SCREEN
     // Nothing required for now...
+    
   }//SELECTION SCREEN END
 
   else { //FIGHT SCREEN
@@ -250,6 +240,7 @@ void keyPressed() {
       }
     } 
     // ----------------------------------------------------------------------------------
+    
   }//FIGHT SCREEN END
 
 
