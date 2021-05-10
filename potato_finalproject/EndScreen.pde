@@ -6,7 +6,7 @@ class EndScreen {
   boolean p1victory = true;
   
   EndScreen() {
-    background = loadImage("endscreen.png");
+    background = loadImage("data/endscreen-01.png");
     clear = color(0,0,0,100);
     darker = color(0,0,0,50);
     restart = new Button(200, 775, 355, 45, "Play Again", darker, clear);

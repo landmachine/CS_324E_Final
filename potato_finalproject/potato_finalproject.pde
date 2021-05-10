@@ -37,6 +37,7 @@ void setup() {
   //set sound variables
   initializeMusic = true;
   soundControl = new soundButton(width - 30, 30);
+  pauseControl = new pauseButton(30, 30);
 
   p1_pokemon = null;
   p2_pokemon = null;
