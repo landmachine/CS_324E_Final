@@ -6,33 +6,40 @@ class FightScreen {
   Table typeChart;
   int p1choice, p2choice;
   PImage background;
+  color moveColor = color(0,0,0,100);
+  color floatColor = color(0,0,0,50);
+  PFont retro = createFont("RetroGaming.ttf", 15);
 
   //Constructor
   FightScreen() {
-    background = loadImage("bg.png");
+    //background = loadImage("bg.png");
+    background = loadImage("fightbackground.png");
 
     p1choice = -1;
     p2choice = -1;
-
+    
     p1Moves = new Button[] {
-      new Button(90, 650, 150, 75, "MOVE 1"), 
-      new Button(width/3, 650, 150, 75, "MOVE 2"), 
-      new Button(90, 750, 150, 75, "MOVE 3"), 
-      new Button(width/3, 750, 150, 75, "MOVE 4")
+      new Button(90, 650, 150, 75, "MOVE 1", floatColor, moveColor), 
+      new Button(width/3, 650, 150, 75, "MOVE 2", floatColor, moveColor), 
+      new Button(90, 750, 150, 75, "MOVE 3", floatColor, moveColor), 
+      new Button(width/3, 750, 150, 75, "MOVE 4", floatColor, moveColor)
     };
 
     p2Moves = new Button[] {
-      new Button(2 * width/3, 650, 150, 75, "MOVE 1"), 
-      new Button(width - 90, 650, 150, 75, "MOVE 2"), 
-      new Button(2 * width/3, 750, 150, 75, "MOVE 3"), 
-      new Button(width -90, 750, 150, 75, "MOVE 4")
+      new Button(2 * width/3, 650, 150, 75, "MOVE 1", floatColor, moveColor), 
+      new Button(width - 90, 650, 150, 75, "MOVE 2", floatColor, moveColor), 
+      new Button(2 * width/3, 750, 150, 75, "MOVE 3", floatColor, moveColor), 
+      new Button(width -90, 750, 150, 75, "MOVE 4", floatColor, moveColor)
     };
-
+     
+    
+    
     typeChart = loadTable("typechart.csv", "header");
 
     textSize(20);
     p1Health = new HealthBar(width/2 - 200, height/2 - 200, 100, "Player1");
     p2Health = new HealthBar(width/2 + 200, height/2 - 200, 100, "Player2");
+    
   }
 
   void display() {
@@ -55,6 +62,13 @@ class FightScreen {
 
     if (p1choice >= 0 && p2choice >= 0) {
       fight();
+    }
+    textFont(retro);
+    if (p1choice == p2choice) {
+      text("What wil Player 1 do?", 400, 565);
+    }
+    else {
+      text("What will Player 2 do", 400, 565);
     }
   }
 
