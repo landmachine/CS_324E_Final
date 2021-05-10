@@ -5,7 +5,7 @@ class SelectionScreen {
   int card_size, card_space;
   boolean player1Turn;
 
-  Button randomPick, player1, player2;
+  Button randomPick, player1_selection, player2_selection;
 
   //Constructor
   SelectionScreen() {
@@ -50,8 +50,8 @@ class SelectionScreen {
       counter++;
     }
     randomPick = new Button(85, height-50, 130, 50, "Random Pick", color(131, 138, 112), color(195, 207, 161));
-    player1 = new Button(75, height/2 - 70, 125, 125, "Player 1", color(131, 138, 112), color(131, 138, 112));
-    player2 = new Button(width - 75, height/2 - 70, 125, 125, "Player 2", color(131, 138, 112), color(131, 138, 112));
+    player1_selection = new Button(75, height/2 - 70, 125, 125, "Player 1", color(131, 138, 112), color(131, 138, 112));
+    player2_selection = new Button(width - 75, height/2 - 70, 125, 125, "Player 2", color(131, 138, 112), color(131, 138, 112));
   }
 
   void display() {
@@ -75,7 +75,7 @@ class SelectionScreen {
       strokeWeight(1);
       stroke(0);
     }
-    player1.display();
-    player2.display();
+    player1_selection.display();
+    player2_selection.display();
   }
 }

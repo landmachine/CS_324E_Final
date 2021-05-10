@@ -92,7 +92,4 @@ class FightScreen {
     p2choice = -1;
   }
 
-  void update_test() {
-    //test
-  }
 }

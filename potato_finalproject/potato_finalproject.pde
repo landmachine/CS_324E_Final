@@ -18,8 +18,8 @@ SoundFile fightMusic;
 
 boolean initializeMusic;
 
-color player1;
-color player2;
+color player1_color;
+color player2_color;
 
 void setup() {
   size(800, 800);
@@ -76,16 +76,21 @@ void draw() {
 
 
 void mousePressed() {
+  // Mute Sound Button
   if (soundControl.hover()) {
     soundControl.muteSwitch();
   }
-  if (!screenSwitched) {
+  
+  // Differentiate screens for different buttons
+  if (!screenSwitched) { //SELECTION SCREEN
+  
     if (screen_select.player1Turn) {
       int index = 0;
       for (Card a_card : cards) {
         if (a_card.button.hover()) {
-          p1_pokemon = pokemons.get(index);
+          p1_pokemon = pokemons.get(index).clone();
           p1_pokemon.pos = new PVector(width / 4, height / 2);
+          screen_select.player1Turn = false;
           // also want to draw pokemon in box to show it was selected
         }
         index++;
@@ -94,17 +99,12 @@ void mousePressed() {
       int index = 0;
       for (Card a_card : cards) {
         if (a_card.button.hover()) {
-          p2_pokemon = pokemons.get(index);
+          p2_pokemon = pokemons.get(index).clone();
           p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
           // also want to draw pokemon in box to show it was selected
         }
         index++;
       }
-    }
-    if (screen_select.player1.hover()) {
-      screen_select.player1Turn = true;
-    } else if (screen_select.player2.hover()) {
-      screen_select.player1Turn = false;
     }
     // If two pokemons have been selected switch to the other screen and change the music
     if (p1_pokemon != null && p2_pokemon != null) {
@@ -113,7 +113,11 @@ void mousePressed() {
       screenSwitched = true; // switch to the fight screen
       fightMusic.loop();
     }
-  } else {
+    
+  }//SELECTION SCREEN END
+  
+  else { //FIGHT SCREEN
+  
     int index = 0;
     for (Button a_move : screen_fight.p1Moves) {
       if (a_move.hover()) {
@@ -162,7 +166,10 @@ void mousePressed() {
       }
       index++;
     }
-  }
+    
+  }//FIGHT SCREEN END
 
-  println("P1:", p1_pokemon, "P2:", p2_pokemon);
+  //testing pokemon selection
+  if (p1_pokemon != null){print("P1:", p1_pokemon.name, "  ");}else{print("P1:", p1_pokemon, "  ");}
+  if (p2_pokemon != null){println("P2:", p2_pokemon.name);}else{println("P2:", p2_pokemon);}
 }
