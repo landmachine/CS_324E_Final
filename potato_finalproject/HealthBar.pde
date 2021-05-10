@@ -13,22 +13,23 @@ class HealthBar {
   }
 
   void updateHealth(int _actualHealth) {
-    actualHealth = _actualHealth;
+    actualHealth = max(actualHealth - _actualHealth, 0);
   }
 
   void display() {
     fill(255);
     rectMode(CENTER);
-    rect(xLoc, yLoc, 90, 50, 7);
+    rect(xLoc, yLoc, 90, 60, 7);
     fill(color(0, 255, 0));
     rectMode(CORNER);
-    if ((80 - 80*(totalHealth - actualHealth)/totalHealth) <= (xLoc - 40)) {
-      //health is 0
-    } else {
-      rect(xLoc - 40, yLoc + 10, 80 - 80*(totalHealth - actualHealth)/totalHealth, 10);
+    if (actualHealth > 0) {
+      rect(xLoc - 40, yLoc, 80 - 80*(totalHealth - actualHealth)/totalHealth, 10);
     }
     fill(0);
+    textSize(15);
     textAlign(CENTER);
-    text(pokeName, xLoc, yLoc);
+    text(pokeName, xLoc, yLoc - 10);
+    textSize(10);
+    text(actualHealth + "/" + totalHealth, xLoc - 15, yLoc + 25);
   }
 }
