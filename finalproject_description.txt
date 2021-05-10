@@ -1,0 +1,68 @@
+Responsibilities:
+
+# Landry Luker:
+-Main Script
+-Music/Sound
+-Fight Screen
+	-
+	-
+-Timer Class
+-Button Class
+
+
+
+# Mehmet Zenginerler:
+-Main Script
+-Pokemon Class
+-Card Class
+-Data pipeline
+	-Read the data from cvs
+	-Send the data to different classes
+	-Create classes with the data (dynamicly)
+		-Pokemons
+		-Cards
+		-Buttons/Moves
+		-Players
+-Selection Screen
+	-Backend - uploading/selecting/sending pokemons
+	-Pokemon Grid
+	-Background Image
+-Button Class
+
+
+
+# Claudia Wang:
+-
+
+
+
+# Katherine Hackworth:
+-
+
+
+
+
+
+
+
+
+
+
+
+# FOO BAR:
+-Main Script
+-Selection Screen
+	-Changing Turns Feature
+	-Glowing Turn Indicator
+-Fight Screen
+	-Damage Calculations
+	-Background Image
+	-Button Art
+	-Fight Turns
+	-Sound
+-HealthBar
+-Keyboard Functionality
+-Animation Hierarchies
+-Game Balance
+-Design
+-Art

@@ -159,6 +159,7 @@ void mousePressed() {
     } else {
       println("P2:", p2_pokemon);
     }
+
   }//SELECTION SCREEN END
 
   else if (screenSwitched && !pauseControl.paused) { //FIGHT SCREEN
