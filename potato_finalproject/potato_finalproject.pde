@@ -10,7 +10,9 @@ ArrayList<Pokemon> pokemons;
 Timer time;
 SelectionScreen screen_select;
 FightScreen screen_fight;
+EndScreen screen_end;
 boolean screenSwitched;
+boolean gameOver;
 
 soundButton soundControl;
 SoundFile selectionMusic;
@@ -46,7 +48,9 @@ void setup() {
   //Initialize Screens
   screen_select = new SelectionScreen();
   screen_fight = new FightScreen();
+  screen_end = new EndScreen();
   screenSwitched = false;
+  gameOver = false;
 } 
 
 void draw() {
@@ -65,9 +69,18 @@ void draw() {
   //add back in calls for screens - switching betwen them too
   if (!screenSwitched) {
     screen_select.display();
-  } else {
+  } 
+  else if(gameOver) {
+    screen_end.display();
+  }
+  
+  else {
     screen_fight.display();
   }
+  
+//  if(gameOver) {
+//    screen_end.display();
+//  }
   soundControl.display();
 
   //}
