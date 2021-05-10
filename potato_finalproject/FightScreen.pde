@@ -5,6 +5,7 @@ class FightScreen {
   int moveAmount = 4;
   Table typeChart;
   int p1choice, p2choice;
+  boolean player1Turn;
   PImage background;
   color moveColor = color(0, 0, 0, 100);
   color floatColor = color(0, 0, 0, 50);
@@ -18,34 +19,28 @@ class FightScreen {
 
     p1choice = -1;
     p2choice = -1;
+    player1Turn = true;
 
     p1Moves = new Button[] {
-      new Button(90, 650, 150, 75, "MOVE 1", floatColor, moveColor), 
-      new Button(width/3, 650, 150, 75, "MOVE 2", floatColor, moveColor), 
-      new Button(90, 750, 150, 75, "MOVE 3", floatColor, moveColor), 
-      new Button(width/3, 750, 150, 75, "MOVE 4", floatColor, moveColor)
+      new Button(90, 650, 150, 60, "MOVE 1", floatColor, moveColor), 
+      new Button(width/3, 650, 150, 60, "MOVE 2", floatColor, moveColor), 
+      new Button(90, 750, 155, 60, "MOVE 3", floatColor, moveColor), 
+      new Button(width/3, 750, 155, 60, "MOVE 4", floatColor, moveColor)
     };
 
     p2Moves = new Button[] {
-      new Button(2 * width/3, 650, 150, 75, "MOVE 1", floatColor, moveColor), 
-      new Button(width - 90, 650, 150, 75, "MOVE 2", floatColor, moveColor), 
-      new Button(2 * width/3, 750, 150, 75, "MOVE 3", floatColor, moveColor), 
-      new Button(width -90, 750, 150, 75, "MOVE 4", floatColor, moveColor)
+      new Button(2 * width/3, 650, 150, 60, "MOVE 1", floatColor, moveColor), 
+      new Button(width - 90, 650, 150, 60, "MOVE 2", floatColor, moveColor), 
+      new Button(2 * width/3, 750, 155, 60, "MOVE 3", floatColor, moveColor), 
+      new Button(width -90, 750, 155, 60, "MOVE 4", floatColor, moveColor)
     };
 
-<<<<<<< HEAD
-
-
-    typeChart = loadTable("typechart.csv", "header");
-
-    textSize(20);
-=======
     typeChart = loadTable("typechart.csv", "header");
 
     textSize(20);
     p1Health = new HealthBar(width/2 - 200, height/2 - 200, 100, "Player1");
     p2Health = new HealthBar(width/2 + 200, height/2 - 200, 100, "Player2");
->>>>>>> 7293af999a1f40f08fe838a5b446969052eaacb6
+
   }
 
   void display() {
@@ -73,15 +68,12 @@ class FightScreen {
     }
     textFont(retro);
     if (p1choice == p2choice) {
-<<<<<<< HEAD
-      text("What wil Player 1 do?", 400, 565);
-    } else {
-      text("What will Player 2 do", 400, 565);
-=======
       text("What will Player 1 do?", 400, 565);
+      player1Turn = true;
     } else {
       text("What will Player 2 do?", 400, 565);
->>>>>>> 7293af999a1f40f08fe838a5b446969052eaacb6
+      player1Turn = false;
+
     }
   }
 

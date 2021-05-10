@@ -73,6 +73,7 @@ void draw() {
   //}
 }
 
+
 void mousePressed() {
   // Mute Sound Button
   if (soundControl.hover()) {
@@ -122,6 +123,20 @@ void mousePressed() {
       screenSwitched = true; // switch to the fight screen
       fightMusic.loop();
     }
+    
+    
+  // Testing pokemon selection
+  if (p1_pokemon != null) {
+    print("P1:", p1_pokemon.name, "  ");
+  } else {
+    print("P1:", p1_pokemon, "  ");
+  }
+  if (p2_pokemon != null) {
+    println("P2:", p2_pokemon.name);
+  } else {
+    println("P2:", p2_pokemon);
+  } 
+    
   }//SELECTION SCREEN END
 
   else { //FIGHT SCREEN
@@ -175,15 +190,77 @@ void mousePressed() {
     }
   }//FIGHT SCREEN END
 
-  //testing pokemon selection
-  if (p1_pokemon != null) {
-    print("P1:", p1_pokemon.name, "  ");
-  } else {
-    print("P1:", p1_pokemon, "  ");
+}
+
+
+void keyPressed() {
+  // Differentiate screens for different key strokes
+  if (!screenSwitched) { //SELECTION SCREEN
+    // Nothing required for now...
+    
+  }//SELECTION SCREEN END
+  
+  else { //FIGHT SCREEN
+  
+    // FIXME: We should connect these keystrokes to their corresponding buttons/moves
+    // ----------------------------------------------------------------------------------
+    if (screen_fight.player1Turn){ // Checks who's turn it is
+      // Player-1 Moves => "a, s, d, f"
+      if (key == 'a') {
+        println(key);
+      }
+      if (key == 's') {
+        println(key);
+      }
+      if (key == 'd') {
+        println(key);
+      }
+      if (key == 'f') {
+        println(key);
+      }
+    }
+    
+    else{
+      // Player-2 Moves => "j, k, l, ;"
+      if (key == 'j') {
+        println(key);
+      }
+      if (key == 'k') {
+        println(key);
+      }
+      if (key == 'l') {
+        println(key);
+      }
+      if (key == ';') {
+        println(key);
+      }
+    } 
+    // ----------------------------------------------------------------------------------
+  
+  }//FIGHT SCREEN END
+  
+   
+  
+  // Press "R" to restart the game
+  if (key=='r') {
+    setup();
   }
-  if (p2_pokemon != null) {
-    println("P2:", p2_pokemon.name);
-  } else {
-    println("P2:", p2_pokemon);
-  }
+
+  // FIXME: We should implement time (60 frames per second)
+  // -------------------------------------------------------------------------------
+  // Press "P" to pause the game
+  //if (key== 'p') {
+  //  if (!g_gameOver) {
+  //    //Pause/Unpause the game
+  //    if (!time.paused) {
+  //      time.pause();
+  //    } else {
+  //      time.unpause();
+  //    }
+  //  }
+  //}
+  // -------------------------------------------------------------------------------
+  
+  // Press "ESC" to quit the game (already exists)
+
 }
