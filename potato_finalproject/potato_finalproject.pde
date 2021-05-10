@@ -101,14 +101,23 @@ void mousePressed() {
         if (a_card.button.hover()) {
           p2_pokemon = pokemons.get(index).clone();
           p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
+          
+          screen_select.player1Turn = true;
         }
         index++;
       }
     }
+    
+    // Allow players to change turns
+    if (screen_select.player1_selection.hover()) {
+      screen_select.player1Turn = true;
+    } else if (screen_select.player2_selection.hover()) {
+      screen_select.player1Turn = false;
+    }
+    
     // If two pokemons have been selected switch to the other screen and change the music
     if (p1_pokemon != null && p2_pokemon != null) {
       selectionMusic.stop();
-      // delay(1000); // wait for a second
       screen_fight.update_moves(); // update moves according to the pokemon
       screenSwitched = true; // switch to the fight screen
       fightMusic.loop();
