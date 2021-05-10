@@ -26,10 +26,10 @@ class Pokemon {
   }
 
   // Clone the given pokemon object and return the clone
-  Pokemon clone(){
+  Pokemon clone() {
     Pokemon newPokemon = new Pokemon(this.pos.x, this.pos.y, this.name, this.type1, this.type2, this.hp, this.attack, this.defense, 
-    this.speed, this.image, this.move_names, this.move_powers, this.move_accuracy, this.move_types);
-    
+      this.speed, this.image, this.move_names, this.move_powers, this.move_accuracy, this.move_types);
+
     return newPokemon;
   }
 

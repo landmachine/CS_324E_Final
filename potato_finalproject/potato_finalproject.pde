@@ -49,7 +49,6 @@ void setup() {
   screenSwitched = false;
 } 
 
-
 void draw() {
   if (initializeMusic) {
     // Load the music files
@@ -73,7 +72,6 @@ void draw() {
 
   //}
 }
-
 
 void mousePressed() {
   // Mute Sound Button
@@ -127,7 +125,6 @@ void mousePressed() {
   }//SELECTION SCREEN END
 
   else { //FIGHT SCREEN
-
     int index = 0;
     for (Button a_move : screen_fight.p1Moves) {
       if (a_move.hover()) {
