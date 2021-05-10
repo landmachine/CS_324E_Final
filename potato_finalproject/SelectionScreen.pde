@@ -31,12 +31,6 @@ class SelectionScreen {
       String[] move_types = split( row.getString("move_types"), "," );
       player1Turn = true;
 
-      //// TESTING:
-      //println(name, "->", type1, "->", type2, "->", hp, "->", attack, "->", defense, "->", speed);
-      //for(String i : move_names){
-      //  println(i);
-      //}
-
       // Load the pokemon image
       String image_id = name + ".png";
       pokemon_image = loadImage(image_id);
@@ -49,7 +43,7 @@ class SelectionScreen {
       pokemons.add(new Pokemon(width/2, height/2, name, type1, type2, hp, attack, defense, speed, pokemon_image, move_names, move_powers, move_accuracy, move_types));
       counter++;
     }
-    randomPick = new Button(85, height-50, 130, 50, "Random Pick", color(131, 138, 112), color(195, 207, 161));
+    //randomPick = new Button(85, height-50, 130, 50, "Random Pick", color(131, 138, 112), color(195, 207, 161));
     player1_selection = new Button(75, height/2 - 70, 125, 125, "Player 1", color(131, 138, 112), color(131, 138, 112));
     player2_selection = new Button(width - 75, height/2 - 70, 125, 125, "Player 2", color(131, 138, 112), color(131, 138, 112));
   }
@@ -59,7 +53,7 @@ class SelectionScreen {
     for (Card a_card : cards) {
       a_card.display();
     }
-    randomPick.display();
+    //randomPick.display();
     if (player1Turn) {
       strokeWeight(10);
       stroke(color(0, 0, 255));
