@@ -90,8 +90,8 @@ void mousePressed() {
         if (a_card.button.hover()) {
           p1_pokemon = pokemons.get(index).clone();
           p1_pokemon.pos = new PVector(width / 4, height / 2);
+          
           screen_select.player1Turn = false;
-          // also want to draw pokemon in box to show it was selected
         }
         index++;
       }
@@ -101,7 +101,6 @@ void mousePressed() {
         if (a_card.button.hover()) {
           p2_pokemon = pokemons.get(index).clone();
           p2_pokemon.pos = new PVector(3 * width / 4, height / 2);
-          // also want to draw pokemon in box to show it was selected
         }
         index++;
       }
@@ -109,6 +108,7 @@ void mousePressed() {
     // If two pokemons have been selected switch to the other screen and change the music
     if (p1_pokemon != null && p2_pokemon != null) {
       selectionMusic.stop();
+      // delay(1000); // wait for a second
       screen_fight.update_moves(); // update moves according to the pokemon
       screenSwitched = true; // switch to the fight screen
       fightMusic.loop();

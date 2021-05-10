@@ -75,7 +75,14 @@ class SelectionScreen {
       strokeWeight(1);
       stroke(0);
     }
+    
+    // Display Pokemon Selections
+    imageMode(CENTER);
     player1_selection.display();
+    if (p1_pokemon != null) {image(p1_pokemon.image, 75, height/2 - 70);}
     player2_selection.display();
+    if (p2_pokemon != null) {image(p2_pokemon.image, width - 75, height/2 - 70);}
+    imageMode(CORNER);
+    
   }
 }
