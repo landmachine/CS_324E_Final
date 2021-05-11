@@ -7,7 +7,6 @@ int pokemonCount;
 ArrayList<Card> cards;
 ArrayList<Pokemon> pokemons;
 
-Timer time;
 SelectionScreen screen_select;
 FightScreen screen_fight;
 EndScreen screen_end;
@@ -33,7 +32,7 @@ void setup() {
   fill(0);
   textSize(50);
   textAlign(CENTER);
-  text("Loading...", width/2, height/2);
+  text("Loading", width/2, height/2);
   PImage load = loadImage("loading.gif");
   image(load, 0, 0);
 
@@ -102,7 +101,6 @@ void draw() {
   }
   pauseControl.display();
 }
-
 
 void mousePressed() {
   // Mute Sound Button
@@ -178,11 +176,6 @@ void mousePressed() {
       for (Button a_move : screen_fight.p1Moves) {
         if (a_move.hover()) {
           screen_fight.p1choice = index;
-          tint(255, 0, 0, 127);
-          p2_pokemon.display();
-          noTint();
-          p2_pokemon.display();
-          // end move stuff
         }
         index++;
       }
@@ -190,11 +183,6 @@ void mousePressed() {
       for (Button a_move : screen_fight.p2Moves) {
         if (a_move.hover()) {
           screen_fight.p2choice = index;
-          tint(255, 0, 0, 127);
-          p1_pokemon.display();
-          noTint();
-          delay(250);// 0.25 seconds -> (?)
-          p1_pokemon.display();
         }
         index++;
       }
@@ -213,9 +201,7 @@ void mousePressed() {
   }
 }
 
-
 void keyPressed() {
-
   // Pause the game
   if (key == 'p') {
     if (!pauseControl.paused) {
@@ -246,37 +232,32 @@ void keyPressed() {
     if (screen_fight.player1Turn) { // Checks who's turn it is
       // Player-1 Moves => "a, s, d, f"
       if (key == 'a') {
-        println(key);
+        screen_fight.p1choice = 0;
       }
       if (key == 's') {
-        println(key);
+        screen_fight.p1choice = 1;
       }
       if (key == 'd') {
-        println(key);
+        screen_fight.p1choice = 2;
       }
       if (key == 'f') {
-        println(key);
+        screen_fight.p1choice = 3;
       }
     } else {
       // Player-2 Moves => "j, k, l, ;"
       if (key == 'j') {
-        println(key);
+        screen_fight.p2choice = 0;
       }
       if (key == 'k') {
-        println(key);
+        screen_fight.p2choice = 1;
       }
       if (key == 'l') {
-        println(key);
+        screen_fight.p2choice = 2;
       }
       if (key == ';') {
-        println(key);
+        screen_fight.p2choice = 3;
       }
     } 
     // ----------------------------------------------------------------------------------
   }//FIGHT SCREEN END
-
-  // Press "R" to restart the game
-  if (key=='r') {
-    setup();
-  }
 }

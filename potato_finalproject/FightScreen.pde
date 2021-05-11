@@ -14,7 +14,6 @@ class FightScreen {
 
   //Constructor
   FightScreen() {
-    //background = loadImage("bg.png");
     background = loadImage("fightbackground.png");
 
     p1choice = -1;
@@ -90,7 +89,7 @@ class FightScreen {
     float typeMult_p1_p2 = typeChart.findRow(p1_movetype, "Attacking").getFloat(p2_pokemon.type1) *
       typeChart.findRow(p1_movetype, "Attacking").getFloat(p2_pokemon.type2);
 
-    float damagep1_p2 = (p1_pokemon.move_powers[p1choice] * (p1_pokemon.attack/ p2_pokemon.defense))/5 * 
+    float damagep1_p2 = (p1_pokemon.move_powers[p1choice] * (p1_pokemon.attack/ p2_pokemon.defense))/ 10 * 
       random(0.85, 1) * typeMult_p1_p2;
 
     //Calculation for damage caused by p2_pokemon
@@ -98,7 +97,7 @@ class FightScreen {
     float typeMult_p2_p1 = typeChart.findRow(p2_movetype, "Attacking").getFloat(p1_pokemon.type1) *
       typeChart.findRow(p2_movetype, "Attacking").getFloat(p1_pokemon.type2);
 
-    float damagep2_p1 = (p2_pokemon.move_powers[p2choice] * (p2_pokemon.attack/ p1_pokemon.defense))/5 * 
+    float damagep2_p1 = (p2_pokemon.move_powers[p2choice] * (p2_pokemon.attack/ p1_pokemon.defense))/ 10 * 
       random(0.85, 1) * typeMult_p2_p1;
 
     //Update Health Bars
