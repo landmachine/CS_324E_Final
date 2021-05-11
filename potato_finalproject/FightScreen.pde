@@ -44,7 +44,6 @@ class FightScreen {
   }
 
   void display() {
-    //background(100);
     imageMode(CORNERS);
     image(background, 0, 0, width, height);
     p1_pokemon.display();
@@ -73,7 +72,6 @@ class FightScreen {
     } else {
       text("What will Player 2 do?", 400, 565);
       player1Turn = false;
-
     }
   }
 

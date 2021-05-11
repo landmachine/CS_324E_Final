@@ -13,6 +13,7 @@ FightScreen screen_fight;
 EndScreen screen_end;
 boolean screenSwitched;
 boolean gameOver;
+boolean p1victory;
 
 soundButton soundControl;
 SoundFile selectionMusic;
@@ -33,6 +34,8 @@ void setup() {
   textSize(50);
   textAlign(CENTER);
   text("Loading...", width/2, height/2);
+  PImage load = loadImage("loading.gif");
+  image(load, 0, 0);
 
   //set sound variables
   initializeMusic = true;
@@ -47,7 +50,7 @@ void setup() {
   //Initialize Screens
   screen_select = new SelectionScreen();
   screen_fight = new FightScreen();
-  screen_end = new EndScreen();
+  //screen_end = new EndScreen();
   screenSwitched = false;
   gameOver = false;
 } 
@@ -73,8 +76,24 @@ void draw() {
       }
     } else if (gameOver) {
       screen_end.display();
+      screen_end.move();
     } else {
       screen_fight.display();
+      if (screen_fight.p1Health.actualHealth == 0 || screen_fight.p2Health.actualHealth == 0) {
+        gameOver = true;
+        if (screen_fight.p1Health.actualHealth == 0 && screen_fight.p2Health.actualHealth == 0) {
+          if (p1_pokemon.speed > p2_pokemon.speed) {
+            p1victory = true;
+          } else {
+            p1victory = false;
+          }
+        } else if (screen_fight.p1Health.actualHealth == 0) {
+          p1victory = false;
+        } else {
+          p1victory = true;
+        }
+      }
+      screen_end = new EndScreen();
       if (!fightMusic.isPlaying()) {
         fightMusic.loop();
       }
@@ -155,30 +174,43 @@ void mousePressed() {
 
   else if (screenSwitched && !pauseControl.paused) { //FIGHT SCREEN
     int index = 0;
-    for (Button a_move : screen_fight.p1Moves) {
-      if (a_move.hover()) {
-        screen_fight.p1choice = index;
-        tint(255, 0, 0, 127);
-        p2_pokemon.display();
-        noTint();
-        p2_pokemon.display();
-        // end move stuff
+    if (screen_fight.p1choice == -1) {
+      for (Button a_move : screen_fight.p1Moves) {
+        if (a_move.hover()) {
+          screen_fight.p1choice = index;
+          tint(255, 0, 0, 127);
+          p2_pokemon.display();
+          noTint();
+          p2_pokemon.display();
+          // end move stuff
+        }
+        index++;
       }
-      index++;
-    }
-    index = 0;
-    for (Button a_move : screen_fight.p2Moves) {
-      if (a_move.hover()) {
-        screen_fight.p2choice = index;
-        tint(255, 0, 0, 127);
-        p1_pokemon.display();
-        noTint();
-        delay(250);// 0.25 seconds -> (?)
-        p1_pokemon.display();
+    } else {
+      for (Button a_move : screen_fight.p2Moves) {
+        if (a_move.hover()) {
+          screen_fight.p2choice = index;
+          tint(255, 0, 0, 127);
+          p1_pokemon.display();
+          noTint();
+          delay(250);// 0.25 seconds -> (?)
+          p1_pokemon.display();
+        }
+        index++;
       }
-      index++;
     }
   }//FIGHT SCREEN END
+
+  //END SCREEN
+  if (gameOver) {
+    if (screen_end.restart.hover()) {
+      fightMusic.stop();
+      setup();
+    }
+    if (screen_end.quit.hover()) {
+      exit();
+    }
+  }
 }
 
 
@@ -242,8 +274,6 @@ void keyPressed() {
     } 
     // ----------------------------------------------------------------------------------
   }//FIGHT SCREEN END
-
-
 
   // Press "R" to restart the game
   if (key=='r') {
