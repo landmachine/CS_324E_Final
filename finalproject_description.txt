@@ -1,9 +1,9 @@
 Functionality:
-This game allows for two players to play against each other with Pokémon of their choice. When the game begins, music begins to play, and both players are able to select their Pokémon from a grid displaying each Pokémon's image. On this screen we also see the mute and pause buttons, the functional difference being that pause prevents buttons from being pressed and pauses the music while mute allows the players to continue playing the game and only turns game volume to 0. Once each player has chosen a Pokémon, another screen appears where Pokémon are able to fight. This screen allows for players to choose their moves, and displays each Pokémon's health. Once both players have chosen an attack for their pokemon to perform, the damage is calculated and applied. When a Pokémon has been defeated, a finishing screen displays the winner and allows the player to restart the program or quit the game altogether. How each required portion of the project was completed is summarized below:
+This game allows for two players to play against each other with Pokemon of their choice. When the game begins, music begins to play, and both players are able to select their Pokemon from a grid displaying each Pokemon's image. On this screen we also see the mute and pause buttons, the functional difference being that pause prevents buttons from being pressed and pauses the music while mute allows the players to continue playing the game and only turns game volume to 0. Once each player has chosen a Pokemon, another screen appears where Pokemon are able to fight. This screen allows for players to choose their moves, and displays each Pokemon's health. Once both players have chosen an attack for their pokemon to perform, the damage is calculated and applied. When a Pokemon has been defeated, a finishing screen displays the winner and allows the player to restart the program or quit the game altogether. How each required portion of the project was completed is summarized below:
 - Keyboard interactivity is implemented as an alternative to the GUI buttons on the fight screen, and if a player hits the escape key then the entire game ends
-- 3 GUI systems are implemented for this project: the selection screen for choosing Pokémon, the fight screen for allowing the Pokémon to fight, and the end screen for allowing either the game to restart or quit.
-- An animation hierarchy was integrated into this project through the aesthetics of the end screen. Here, the winning Pokémon is surrounded by fireworks that rotate around the Pokémon as the Pokémon and the fireworks bounce around the screen.
-- Data input was achieved by reading two .csv files- one with Pokémon information and the other with Pokémon type information.
+- 3 GUI systems are implemented for this project: the selection screen for choosing Pokemon, the fight screen for allowing the Pokemon to fight, and the end screen for allowing either the game to restart or quit.
+- An animation hierarchy was integrated into this project through the aesthetics of the end screen. Here, the winning Pokemon is surrounded by fireworks that rotate around the Pokemon as the Pokemon and the fireworks bounce around the screen.
+- Data input was achieved by reading two .csv files- one with Pokemon information and the other with Pokemon type information.
 - Sound was implemented into this project by including music, which changes between the selection and fight screens. The sound is mutable by a GUI button, and also stops when the game is paused.
 
 Classes:
@@ -18,10 +18,10 @@ Classes:
 - Sound - handles volume management for game music.
 
 Challenges:
-- Attack animations were planned, but due to the structure of our code, were unable to be feasibly implemented.
 - We couldn't figure out how to use animation hierarchies with PImages, so we had to make a .svg copy of each of our pokemon .pngs for the ending screen animations.
 - The sound files take so long to load that we had to implement a loading screen.
 - Game balancing is quite difficult.
+
 
 Responsibilities:
 
@@ -52,10 +52,11 @@ Responsibilities:
 -EndScreen Class
 
 # Katherine Hackworth:
--Fight Screen
+-Fight Screen Adjustments
 -keyPressed()
 -Game Balance
--Text Documents (i.e., this + README.md)
+-Description.txt
+
 
 Notes:
 - Pokemon is a trademark of The Pokemon Company.
